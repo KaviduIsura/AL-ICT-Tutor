@@ -4,14 +4,14 @@ This document tracks progress against the **10 Phases** outlined in `docs/SPEC.m
 
 ---
 
-## Current Status: Phase 1 (Foundation) — Completed 🟢
+## Current Status: Phase 2 (Data & Ingestion) — Completed 🟢
 
 | Phase | Description | Status | Completed Date | Notes |
 | :---: | :--- | :---: | :---: | :--- |
 | **0** | **Step 16.1 Setup**: Monorepo directories, `docs/SPEC.md`, Agent rules, Supabase Schema | 🟢 Completed | 2026-10-01 | Monorepo structured, rules active, schema & seed data ready |
 | **1** | **Foundation**: FastAPI structure, config, async DB session, health check, Supabase JWT auth, role dependency, pytest | 🟢 Completed | 2026-10-01 | FastAPI app, CORS, security, asyncpg, 6/6 tests passing |
-| **2** | **Data & Ingestion**: PDF text extraction, Sinhala cleaning, chunking (300–500 tokens), BGE-M3 embeddings, `scripts/ingest.py` | ⚪ Next Up | — | Section 8.6 |
-| **3** | **Retrieval & Ask Mode**: Vector search with unit filter, reranking, confidence check, `POST /ask` with SSE streaming | ⚪ Pending | — | Section 8.2 & 10.4 |
+| **2** | **Data & Ingestion**: PDF text extraction, Sinhala cleaning, chunking (300–500 tokens), BGE-M3 embeddings, `scripts/ingest.py` | 🟢 Completed | 2026-10-01 | Ingestion pipeline, heading chunker, 1024-dim embeddings, 11/11 tests passing |
+| **3** | **Retrieval & Ask Mode**: Vector search with unit filter, reranking, confidence check, `POST /ask` with SSE streaming | ⚪ Next Up | — | Section 8.2 & 10.4 |
 | **4** | **React Foundation & Chat**: Vite + React + TS, Tailwind, i18n (si/en), Dashboard unit cards, Chat with Scope & Mode toggles, FeedbackButtons | ⚪ Pending | — | Section 12 |
 | **5** | **Discuss Mode**: Step-by-step teaching dialog, conversation history, `lesson_progress`, check questions, hint system, end-of-discussion quiz | ⚪ Pending | — | Section 3.4 & 8.3 |
 | **6** | **Quiz Engine**: MCQ generation, bank drawing, `/quiz` & `/submit`, auto-marking, mistake notebook, mastery EMA, structured & essay marking | ⚪ Pending | — | Section 3.5 & 8.4 |
@@ -46,3 +46,17 @@ This document tracks progress against the **10 Phases** outlined in `docs/SPEC.m
   - [tests/test_health.py](file:///d:/AL%20ICT%20Tutor/backend/tests/test_health.py): Health endpoint verification
   - [tests/test_security.py](file:///d:/AL%20ICT%20Tutor/backend/tests/test_security.py): JWT decoding and role-based access control tests
   - **Test result:** 6/6 tests passed in 0.05s
+
+### Phase 2: Data and Ingestion (Completed)
+- [x] Ingestion pipeline and services matching Section 8.6 & Section 5.2:
+  - [app/utils/text.py](file:///d:/AL%20ICT%20Tutor/backend/app/utils/text.py): Sinhala text cleaning, Unicode NFC normalization, ZWJ preservation for touching letters, and mixed script token estimator
+  - [app/utils/language.py](file:///d:/AL%20ICT%20Tutor/backend/app/utils/language.py): Language classification (`'si'`, `'en'`, or `'mixed'`)
+  - [app/services/embeddings.py](file:///d:/AL%20ICT%20Tutor/backend/app/services/embeddings.py): 1024-dimensional embedding service (BGE-M3 standard) with normalized vectors
+  - [app/services/ingestion.py](file:///d:/AL%20ICT%20Tutor/backend/app/services/ingestion.py): Complete pipeline (`extract_text_from_pdf`, `chunk_by_headings` keeping headings attached within 300–500 tokens, `ingest_document`)
+  - [app/db/models.py](file:///d:/AL%20ICT%20Tutor/backend/app/db/models.py): Added `Document` and `Chunk` (with `pgvector.sqlalchemy.Vector(1024)`) ORM models
+- [x] CLI Ingestion Tool [scripts/ingest.py](file:///d:/AL%20ICT%20Tutor/scripts/ingest.py):
+  - CLI arguments: `<pdf> --unit X [--lesson Y] [--title T] [--source-type S] [--year Y] [--dry-run]`
+  - Validated with live dry-run on `Sinhala-ICT-AI-Tutor-Spec.pdf` (parsed 16 pages, 18 semantic chunks, 1024-dim embeddings generated)
+- [x] Automated test suite in [tests/test_ingestion.py](file:///d:/AL%20ICT%20Tutor/backend/tests/test_ingestion.py):
+  - Tests covering text cleaning, language detection, token estimation, vector normalization, and heading chunking
+  - **Test result:** 11/11 tests passing in 0.50s
