@@ -13,7 +13,7 @@ from sqlalchemy import (
     String,
     Text,
 )
-from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
 from sqlalchemy.orm import relationship
 
 from app.db.session import Base
@@ -103,3 +103,26 @@ class PromptVersion(Base):
     uses = Column(Integer, default=0, nullable=False)
     avg_reward = Column(Float, default=0.0, nullable=False)
     active = Column(Boolean, default=True, nullable=False)
+
+
+class Interaction(Base):
+    __tablename__ = "interactions"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("profiles.id"), nullable=True)
+    mode = Column(Text, default="ask", nullable=False)  # ask | discuss
+    scope = Column(Text, default="all", nullable=False)  # unit | all
+    unit_id = Column(Integer, ForeignKey("units.id"), nullable=True)
+    question = Column(Text, nullable=False)
+    chunk_ids = Column(ARRAY(UUID(as_uuid=True)), nullable=True)  # uuid[] in Postgres
+    prompt_version_id = Column(Integer, ForeignKey("prompt_versions.id"), nullable=True)
+    answer = Column(Text, nullable=True)
+    confidence = Column(Float, nullable=True)
+    latency_ms = Column(Integer, nullable=True)
+    reward = Column(Float, nullable=True)
+    review_status = Column(Text, default="none", nullable=False)  # none | approved | edited | rejected
+    corrected_answer = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
+
+    prompt_version = relationship("PromptVersion")
+    unit = relationship("Unit")

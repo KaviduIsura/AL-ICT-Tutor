@@ -4,15 +4,15 @@ This document tracks progress against the **10 Phases** outlined in `docs/SPEC.m
 
 ---
 
-## Current Status: Phase 2 (Data & Ingestion) — Completed 🟢
+## Current Status: Phase 3 (Retrieval & Ask Mode) — Completed 🟢
 
 | Phase | Description | Status | Completed Date | Notes |
 | :---: | :--- | :---: | :---: | :--- |
 | **0** | **Step 16.1 Setup**: Monorepo directories, `docs/SPEC.md`, Agent rules, Supabase Schema | 🟢 Completed | 2026-10-01 | Monorepo structured, rules active, schema & seed data ready |
 | **1** | **Foundation**: FastAPI structure, config, async DB session, health check, Supabase JWT auth, role dependency, pytest | 🟢 Completed | 2026-10-01 | FastAPI app, CORS, security, asyncpg, 6/6 tests passing |
 | **2** | **Data & Ingestion**: PDF text extraction, Sinhala cleaning, chunking (300–500 tokens), BGE-M3 embeddings, `scripts/ingest.py` | 🟢 Completed | 2026-10-01 | Ingestion pipeline, heading chunker, 1024-dim embeddings, 11/11 tests passing |
-| **3** | **Retrieval & Ask Mode**: Vector search with unit filter, reranking, confidence check, `POST /ask` with SSE streaming | ⚪ Next Up | — | Section 8.2 & 10.4 |
-| **4** | **React Foundation & Chat**: Vite + React + TS, Tailwind, i18n (si/en), Dashboard unit cards, Chat with Scope & Mode toggles, FeedbackButtons | ⚪ Pending | — | Section 12 |
+| **3** | **Retrieval & Ask Mode**: Vector search with unit filter, reranking, confidence check, `POST /ask` with SSE streaming | 🟢 Completed | 2026-10-01 | Vector search SQL, confidence threshold, SSE streaming, interactions logging |
+| **4** | **React Foundation & Chat**: Vite + React + TS, Tailwind, i18n (si/en), Dashboard unit cards, Chat with Scope & Mode toggles, FeedbackButtons | ⚪ Next Up | — | Section 12 |
 | **5** | **Discuss Mode**: Step-by-step teaching dialog, conversation history, `lesson_progress`, check questions, hint system, end-of-discussion quiz | ⚪ Pending | — | Section 3.4 & 8.3 |
 | **6** | **Quiz Engine**: MCQ generation, bank drawing, `/quiz` & `/submit`, auto-marking, mistake notebook, mastery EMA, structured & essay marking | ⚪ Pending | — | Section 3.5 & 8.4 |
 | **7** | **Teacher Tools**: Document upload with ingestion status, question review queue, mark override, classes, assignments, analytics | ⚪ Pending | — | Section 3.10 |
@@ -60,3 +60,17 @@ This document tracks progress against the **10 Phases** outlined in `docs/SPEC.m
 - [x] Automated test suite in [tests/test_ingestion.py](file:///d:/AL%20ICT%20Tutor/backend/tests/test_ingestion.py):
   - Tests covering text cleaning, language detection, token estimation, vector normalization, and heading chunking
   - **Test result:** 11/11 tests passing in 0.50s
+
+### Phase 3: Retrieval and Ask Mode (Completed)
+- [x] Retrieval engine and streaming Ask pipeline matching Section 5.2, 8.2, 9, 10.3, & 10.4:
+  - [app/schemas/ask.py](file:///d:/AL%20ICT%20Tutor/backend/app/schemas/ask.py): Pydantic models for `AskRequest`, `SourceChunk`, `AskMetadata`, and `AskResponse`
+  - [app/services/retrieval.py](file:///d:/AL%20ICT%20Tutor/backend/app/services/retrieval.py): Cosine similarity search using pgvector (`ORDER BY embedding <=> query_vector`), metadata filtering by unit (`unit_id`) and lesson (`lesson_id`), confidence score calculation and low-confidence warning detection
+  - [app/services/prompts.py](file:///d:/AL%20ICT%20Tutor/backend/app/services/prompts.py): Dynamic prompt loading by version (`ask_v1`), multilingual language formatting, and grounded context assembly with strict citations (`[Unit X – Lesson Y]`)
+  - [app/services/llm.py](file:///d:/AL%20ICT%20Tutor/backend/app/services/llm.py): Asynchronous LLM streaming client supporting Google Gemini (SSE REST API), OpenAI-compatible APIs, and local testing simulator
+  - [app/services/ask_service.py](file:///d:/AL%20ICT%20Tutor/backend/app/services/ask_service.py): Flow orchestrator (language detection, retrieval, prompt assembly, token streaming, and interaction logging in `public.interactions`)
+  - [app/routers/ask.py](file:///d:/AL%20ICT%20Tutor/backend/app/routers/ask.py): `POST /ask` streaming endpoint returning Server-Sent Events (`text/event-stream`) with metadata, tokens, and done event
+  - [app/db/models.py](file:///d:/AL%20ICT%20Tutor/backend/app/db/models.py): Added `Interaction` model with `ARRAY(UUID)` for `chunk_ids` matching Postgres schema
+- [x] Automated test suite in [tests/test_ask.py](file:///d:/AL%20ICT%20Tutor/backend/tests/test_ask.py):
+  - Tests validating `POST /ask` SSE stream format, metadata frame parsing, Sinhala unit-filtered query, and input validation
+  - **Test result:** 14/14 tests passing
+

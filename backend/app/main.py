@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import get_settings
 from app.core.logging import logger, setup_logging
 from app.core.security import AuthenticatedUser, get_current_user, require_admin, require_teacher
+from app.routers import ask
 
 settings = get_settings()
 
@@ -35,6 +36,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Register API Routers
+app.include_router(ask.router)
 
 
 @app.get("/health", tags=["Health"])
