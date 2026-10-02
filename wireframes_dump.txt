@@ -1,0 +1,1931 @@
+=== PAGE 1 ===
+Sinhala A/L ICT AI Tutor
+UI Wireframes
+Low-fidelity wireframes for every page: public, student, teacher, admin and shared screens. Grey boxes are placeholders;
+dark buttons are primary actions; ① ② markers match the numbered notes beside each screen.
+Page index
+# Page
+Role
+Route
+2
+Home page
+Public
+/
+3
+Login
+Public
+/login
+4
+Register
+Public
+/register
+5
+Password reset & email verification
+Public
+/forgot /reset /verify
+6
+Student dashboard
+Student
+/app
+7
+Unit page
+Student
+/units/:id
+8
+Chat: Ask & Discuss
+Student
+/chat
+9
+Quiz setup
+Student
+/quiz/new
+10
+Quiz runner (MCQ, structured, essay)
+Student
+/quiz/:id
+11
+Quiz result
+Student
+/quiz/:id/result
+12
+Past papers
+Student
+/past-papers
+13
+Progress
+Student
+/progress
+14
+Mistake notebook
+Student
+/mistakes
+15
+Flashcards
+Student
+/flashcards
+16
+Glossary
+Student
+/glossary
+17
+Study planner
+Student
+/planner
+18
+Teacher dashboard
+Teacher
+/teacher
+19
+Content upload & ingestion
+Teacher
+/teacher/content
+# Page
+Role
+Route
+20
+Review queue (questions & answers)
+Teacher
+/teacher/review
+21
+Mark override
+Teacher
+/teacher/marks
+22
+Classes & assignments
+Teacher
+/teacher/classes
+23
+Class analytics
+Teacher
+/teacher/analytics
+24
+Student report
+Teacher
+/teacher/students/:id
+25
+Admin dashboard
+Admin
+/admin
+26
+User management
+Admin
+/admin/users
+27
+Curriculum management
+Admin
+/admin/curriculum
+28
+Prompt versions
+Admin
+/admin/prompts
+29
+Quality & reward dashboard
+Admin
+/admin/quality
+30
+System settings
+Admin
+/admin/settings
+31
+Audit log & data requests
+Admin
+/admin/audit
+32
+Profile & settings (all roles)
+All roles
+/settings
+33
+Help & how-to guide
+All roles
+/help
+34
+Privacy, terms & consent
+Public
+/privacy
+35
+Error, empty & loading states
+All roles
+(system states)
+36
+Mobile views (PWA)
+Student
+Mobile layouts
+
+
+=== PAGE 2 ===
+2 Home page
+/
+Public
+https://app.example/
+LOGO
+How it works Features For teachers Help
+Login
+Register
+Learn A/L ICT in Sinhala & English
+Get started
+Login
+Cited answers
+Unit by unit
+Exam-style quizzes
+① App preview / illustration
+② Why this tutor
+Syllabus-based answers
+Unit or whole syllabus
+MCQ · Structured · Essay
+Track weak topics
+③ How it works
+1 Sign up
+2 Pick a unit
+3 Ask or Discuss
+4 Practise & review
+④ Basic things you can do
+Ask a question
+Try demo
+Switch scope
+Take a quiz
+Rate answers
+⑤ For students
+Register
+⑤ For teachers
+Request access
+⑤ Safe & private
+Privacy
+Elements & actions
+① Hero: one-line value and two main
+actions.
+② Value cards explain what makes it
+different (cited, syllabus-grounded).
+③ Four-step "how it works" for first-time
+visitors.
+④ Mini guide to the basic actions; "Try
+demo" shows a sample cited answer
+without login.
+⑤ Audience cards; teachers register
+with an invite code. Privacy link for
+parents/schools.
+
+
+=== PAGE 3 ===
+3 Login
+/login
+Public
+https://app.example/login
+① Value message + preview
+Login
+Email
+Password
+☐ Remember me
+Forgot password?
+Login
+— or —
+Continue with Google
+New here? Register
+Elements & actions
+① Left side repeats the value so visitors
+remember why they are here.
+② Email + password, remember me,
+forgot password link.
+③ Google login optional.
+④ After login the user is redirected by
+role: student, teacher, or admin
+dashboard.
+
+
+=== PAGE 4 ===
+4 Register
+/register
+Public
+https://app.example/register
+Why join: 3 bullet benefits
+Create account
+Full name
+Email
+Grade ▾
+Password
+Confirm password
+Language: ○ Sinhala ○ English ○ Mixed
+① Teacher invite code (optional)
+☐ ② I accept Privacy & Terms (guardian consent if under 18)
+Create account
+Already registered? Login
+Elements & actions
+① Teacher invite code upgrades the
+account to teacher after admin
+approval; no self-signup as admin.
+② Consent checkbox links to the Privacy
+page; shows guardian-consent text for
+minors.
+③ New students land on a short
+onboarding (pick language, first unit).
+
+
+=== PAGE 5 ===
+5 Password reset & email verification
+/forgot /reset /verify
+Public
+https://app.example/forgot /reset /verify
+1 Forgot password
+Email
+Send reset link
+Back to login
+2 Set new password
+New password
+Confirm password
+Save
+3 Verify email
+We sent a link to you@mail.com
+Resend email
+Change email
+Elements & actions
+① Three small states in one wireframe.
+② Reset link expires; show a clear
+expired-link message with a resend
+button.
+③ Verification can be required before
+first login.
+
+
+=== PAGE 6 ===
+6 Student dashboard
+/app
+Student
+https://app.example/app
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Welcome back, Kavidu
+Resume: Unit 4 › Normalization
+② Today
+Flashcards due: 12
+Mistakes to revise: 5
+Streak: 6 days
+③ Ask anything about the whole syllabus…
+Ask
+④ Units
+Unit 1
+avg 72%
+Ask
+Discuss
+Quiz
+Unit 2
+avg 58%
+Ask
+Discuss
+Quiz
+Unit 3
+avg 81%
+Ask
+Discuss
+Quiz
+Unit 4
+avg 44%
+Ask
+Discuss
+Quiz
++ more units…
+⑤ Weak topics
+Joins – 38%
+Subnetting – 41%
+Practise
+⑥ Assignments
+Networking quiz · due Fri
+Start
+⑦ Recent chats
+Normalization…
+TCP vs UDP…
+Elements & actions
+① Resume button returns to the last
+lesson.
+② Daily to-do: flashcards, mistakes,
+streak.
+③ Whole-syllabus ask bar opens Chat in
+"Whole syllabus" scope.
+④ Unit cards: progress, average, and
+Ask / Discuss / Quiz shortcuts.
+⑤ Weak topics from the mastery score;
+Practise opens a targeted quiz.
+⑥ Teacher assignments with deadlines.
+⑦ Recent chats reopen conversations.
+
+
+=== PAGE 7 ===
+7 Unit page
+/units/:id
+Student
+https://app.example/units/:id
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+Units › Unit 4: Database
+Ask
+Discuss
+Quiz
+Lessons
+Ask
+Discuss
+Quiz
+Past papers
+① Lessons
+4.1 Data models
+mastery 70%
+Summary
+4.2 Normalization
+mastery 40%
+Summary
+4.3 SQL basics
+mastery 25%
+Summary
+4.4 ER diagrams
+mastery 0%
+Summary
+② Starter questions
+What is a primary key?
+Explain 1NF
+③ Key terms
+Primary key / Foreign key
+Normalization
+Glossary
+Elements & actions
+① Lesson list with mastery bars;
+Summary opens one-tap revision notes.
+② Starter question chips open Chat with
+that question pre-filled in unit scope.
+③ Glossary terms for this unit with a link
+to the full glossary.
+④ Tabs switch between lessons, unit
+chat, discuss, quiz, and past papers for
+the unit.
+
+
+=== PAGE 8 ===
+8 Chat: Ask & Discuss
+/chat
+Student
+https://app.example/chat
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Scope: [This unit | Whole syllabus]
+② Mode: [Ask | Discuss]
+Lang: Auto ▾
+History
+Normalization
+TCP vs UDP
++ New chat
+③ Banner: "This looks like Unit 4. Search all units?"
+Student: What is 2NF?
+Tutor answer
+Unit 4 › 4.2
+Unit 4 › 4.3
+Simpler
+Example
+SI/EN
+Thumbs up
+Thumbs down
+Reasons: Wrong · Unclear · Too long…
+Discuss check question
+Your answer…
+④ Type your question…
+Send
+⑤ Source panel
+Unit 4 › 4.2
+"passage text…"
+Confidence
+High ▮▮▮▯
+Elements & actions
+① Scope toggle controls retrieval: unit
+filter or whole syllabus.
+② Ask = short cited answer; Discuss =
+step-by-step teaching with check
+questions.
+③ Smart scope suggestion banner.
+④ Input box; answers stream in word by
+word.
+⑤ Source panel shows the exact
+passage; low confidence shows a
+warning or "not found in syllabus".
+⑥ Feedback: thumbs up/down with
+reason chips under each answer.
+
+
+=== PAGE 9 ===
+9 Quiz setup
+/quiz/new
+Student
+https://app.example/quiz/new
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Scope
+○ This unit ○ Multi-unit ○ Whole syllabus
+Units: ☐U1 ☑U2 ☑U3 ☐U4
+Lessons: ☑ all
+② Question types
+MCQ [ - 10 + ]
+Structured [ - 2 + ]
+Essay [ - 1 + ]
+③ Difficulty
+○ Easy ○ Medium ○ Hard ○ Mixed
+③ Language
+○ Sinhala ○ English ○ Bilingual
+④ Exam mode
+Timer ☑ 60 min
+Paper layout ☑
+⑤ Summary: 13 questions · ~60 min · Units 2, 3
+Start quiz
+Elements & actions
+① Scope: unit, several units, or whole
+syllabus (mock exam).
+② Choose how many MCQ, structured
+and essay questions.
+③ Difficulty and language options.
+④ Exam mode adds a timer and paper-
+style layout.
+⑤ Summary before starting; questions
+come from the approved bank, not yet
+seen.
+
+
+=== PAGE 10 ===
+10 Quiz runner (MCQ, structured, essay)
+/quiz/:id
+Student
+https://app.example/quiz/:id
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+Unit 2–3 quiz · 4 / 13
+① Timer 42:10
+Flag
+MCQ
+○ A ○ B ○ C ○ D ○ E
+Structured (10 marks)
+Scenario text…
+(a) 2 marks
+answer
+(b) 4 marks
+answer
+(c) 4 marks
+answer
+Essay (15 marks)
+Write your answer…
+Word guide: 150–200
+◀ Prev
+② ● ● ○ ○ ○ ○ ○ ○ question map
+Next ▶
+Submit
+Elements & actions
+① One question appears at a time; the
+three layouts are shown together here.
+② Timer only in exam mode.
+③ Question map for jumping and
+reviewing; flagged questions are
+highlighted.
+④ Answers autosave; submit asks for
+confirmation.
+
+
+=== PAGE 11 ===
+11 Quiz result
+/quiz/:id/result
+Student
+https://app.example/quiz/:id/result
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Score
+32 / 45 (71%)
+By type
+MCQ 80% · Struct 65% · Essay 60%
+By unit
+② Question review
+Q4 – Structured
+Your answer · Model answer
+AI marks: (a) 2/2 (b) 1/4 …
+Agree
+Disagree
+Report question
+Q7 – MCQ
+Your: B Correct: D
+Explanation per option
+③ Wrong answers saved to Mistake notebook
+Retry
+Revise lessons
+Back to unit
+Elements & actions
+① Overall score and breakdown by type
+and unit.
+② Per-question review: answer, model
+answer, explanation, AI marks with
+suggested-mark note.
+③ Mistakes saved automatically; actions
+to retry or revise weak lessons.
+
+
+=== PAGE 12 ===
+12 Past papers
+/past-papers
+Student
+https://app.example/past-papers
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+Year ▾
+Unit ▾
+Type ▾
+Filter
+① Papers
+2024 · Paper I / II
+2023 · Paper I / II
+2022 · Paper I / II
+② Unit frequency chart
+bar chart: questions per unit by year
+Q
+Type
+Unit
+Marks
+2024-Q3
+Structured
+Database
+10
+Attempt
+2024-Q8
+Essay
+Networking
+15
+Attempt
+Elements & actions
+① Browse by year, unit and type.
+② Frequency chart shows which units
+appear most.
+③ Attempt uses the same marking flow
+as quizzes.
+
+
+=== PAGE 13 ===
+13 Progress
+/progress
+Student
+https://app.example/progress
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Mastery heatmap (unit × lesson)
+heatmap
+② Score over time
+line chart
+Accuracy by type
+③ Weak topics
+Lesson
+Mastery
+Last practised
+4.2 Normalization
+40%
+3 days ago
+Practise
+6.1 Subnetting
+41%
+1 week ago
+Practise
+Elements & actions
+① Heatmap shows strong and weak
+lessons at a glance.
+② Trend shows improvement over time.
+③ Weak topics link to targeted practice
+quizzes.
+
+
+=== PAGE 14 ===
+14 Mistake notebook
+/mistakes
+Student
+https://app.example/mistakes
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+Unit ▾
+Type ▾
+Status ▾
+① Revise my mistakes quiz
+Q: Define 2NF · Unit 4 · MCQ
+Your answer / Correct answer / Explanation
+☐ Marked as revised 
+Ask tutor
+Q: TCP vs UDP · Unit 3 · Structured
+Your answer / Model answer
+☐ Marked as revised 
+Ask tutor
+Q: …
+Elements & actions
+① Wrong answers are added
+automatically.
+② Revise quiz is built only from
+unrevised mistakes.
+③ Ask tutor opens Chat with the
+question and context.
+
+
+=== PAGE 15 ===
+15 Flashcards
+/flashcards
+Student
+https://app.example/flashcards
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Decks
+Unit 1 (5 due)
+Unit 2 (3 due)
+Unit 4 (4 due)
+Card 3 / 12
+FRONT: term (flip to see definition)
+Flip
+Again
+Hard
+Good
+Easy
+Elements & actions
+① Decks come from glossary terms.
+② Rating buttons schedule the next
+review (spaced repetition).
+③ Due count appears on the dashboard.
+
+
+=== PAGE 16 ===
+16 Glossary
+/glossary
+Student
+https://app.example/glossary
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Search Sinhala or English term…
+Unit ▾
+A–Z ▾
+Sinhala
+term
+English
+term
+Definition
+Unit
+…
+Normalization Process of
+organising data…
+4
+Add to flashcards
+…
+Primary key
+Unique identifier…
+4
+Add to flashcards
+…
+Router
+Device that
+forwards packets…
+3
+Add to flashcards
+Elements & actions
+① Bilingual term lookup; ICT students
+mix languages, so both are searchable.
+② Add to flashcards creates review
+cards.
+
+
+=== PAGE 17 ===
+17 Study planner
+/planner
+Student
+https://app.example/planner
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Setup
+Exam date: [date]
+Hours per week: [ 8 ]
+Generate plan
+② Priority units
+Unit 4 – high
+Unit 6 – high
+Unit 2 – medium
+③ Weekly plan
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun
+4.2 notes
+Quiz U4 Flashcards
+6.1 discuss
+Mistakes
+Mock quiz
+Rest
+Elements & actions
+① Student enters the exam date and
+weekly hours.
+② Priority comes from weak-topic
+mastery.
+③ Plan tasks link straight to lessons,
+quizzes and flashcards.
+
+
+=== PAGE 18 ===
+18 Teacher dashboard
+/teacher
+Teacher
+https://app.example/teacher
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+Students86
+Classes3
+① Pending reviews14
+Flagged answers6
+② Weak units across classes
+bar chart
+③ Upcoming deadlines
+Networking quiz · Fri
+Unit 4 quiz · Mon
+④ Recent activity
+Nimal completed Quiz U2 (70%)
+Question reported: Q-132
+Quick actions
+Upload content
+Review queue
+New assignment
+Elements & actions
+① Counters link straight to the review
+queue.
+② Weak-unit chart guides what to teach
+next.
+③ Deadlines for assigned quizzes.
+④ Activity feed shows reports and
+completions.
+
+
+=== PAGE 19 ===
+19 Content upload & ingestion
+/teacher/content
+Teacher
+https://app.example/teacher/content
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+① Upload
+Drop PDF / notes / past paper here
+Title
+Type ▾
+Year
+Unit ▾
+Lesson ▾
+Upload & process
+② Rules
+OCR for scans
+Check permission to use the material
+③ Documents & processing status
+Title
+Type
+Unit Status
+Chunks
+Unit 4 notes
+Notes
+4
+Ready
+42
+Preview chunks
+2023 Paper II Past paper –
+Processing… –
+Scan 07
+Notes
+3
+Failed
+–
+Retry
+Elements & actions
+① Metadata tagging (type, year, unit,
+lesson) drives unit-filtered search.
+② Reminder to use material you have
+permission for.
+③ Status table: pending, processing,
+ready, failed; preview chunks to check
+Sinhala OCR quality.
+
+
+=== PAGE 20 ===
+20 Review queue (questions & answers)
+/teacher/review
+Teacher
+https://app.example/teacher/review
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+Generated questions
+Flagged answers
+Reported
+Unit ▾
+Type ▾
+Status ▾
+Filter
+① Queue
+ID
+Type
+Unit
+Reports
+Q-132
+MCQ
+4
+2
+Q-140
+Structured
+3
+0
+Q-151
+Essay
+6
+1
+② Detail
+Question text…
+Marking scheme / options
+Source passage
+Approve
+Edit
+Reject
+Elements & actions
+① Questions only reach students after
+approval.
+② Detail view shows the question,
+scheme, and source passage side by
+side.
+③ Flagged answers tab: edit and save a
+corrected answer; corrections become
+high-quality feedback for improving the
+tutor.
+
+
+=== PAGE 21 ===
+21 Mark override
+/teacher/marks
+Teacher
+https://app.example/teacher/marks
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+① Attempts to check
+Student
+Question
+AI mark
+A. Perera
+Q4
+7/10
+N. Silva
+Q9
+10/15
+② Student answer vs scheme
+Student answer…
+Point
+Max
+AI
+Final
+Defines 2NF
+2
+2
+2
+Example
+2
+1
+2
+Comment to student
+Save marks
+Elements & actions
+① AI marks are suggestions; the teacher
+sets the final mark per point.
+② Saved changes also measure AI-vs-
+teacher agreement for evaluation.
+
+
+=== PAGE 22 ===
+22 Classes & assignments
+/teacher/classes
+Teacher
+https://app.example/teacher/classes
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+① My classes
+Grade 12 A
+Grade 12 B
++ New class
+Students
+Assignments
+② Invite code: ICT-12A-7Q
+Share with students to join
+Copy
+Student
+Avg
+Last active
+A. Perera
+72%
+Today
+N. Silva
+58%
+2 days
+③ New assignment
+Units ▾ · Types ▾ · Due date
+Assign
+Elements & actions
+① Create classes and share an invite
+code.
+② Student list with quick stats; click for
+the student report.
+③ Assignment form reuses quiz setup
+options plus a deadline.
+
+
+=== PAGE 23 ===
+23 Class analytics
+/teacher/analytics
+Teacher
+https://app.example/teacher/analytics
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+Class ▾
+Date range ▾
+Export
+① Heatmap: students × units
+heatmap
+② Weak lessons
+4.2 Normalization
+6.1 Subnetting
+③ Most reported
+Q-132 (4 reports)
+Chunk 88 (3 reports)
+Score trend
+line
+Elements & actions
+① See at a glance who struggles with
+which unit.
+② Weak lessons guide lesson planning.
+③ Most-reported items show content
+that needs fixing.
+
+
+=== PAGE 24 ===
+24 Student report
+/teacher/students/:id
+Teacher
+https://app.example/teacher/students/:id
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Teacher ▾
+Dashboard
+Content
+Upload
+Review
+Queue
+Mark
+Override
+Classes
+Analytics
+Student
+Reports
+Settings
+Help
+A. Perera · Grade 12 A
+Avg 72% · streak 6
+Export PDF
+① Mastery by unit
+bars
+Score trend
+line
+② Strengths / Weaknesses
++ Networking
+– Database
+③ Recent attempts
+Date
+Quiz
+Score
+Sep 28
+Unit 4 quiz
+60%
+View
+Sep 25
+Unit 3 quiz
+82%
+View
+Elements & actions
+① Per-student view for parent meetings
+or intervention.
+② PDF export for sharing.
+
+
+=== PAGE 25 ===
+25 Admin dashboard
+/admin
+Admin
+https://app.example/admin
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+Users1,240
+Questions today860
+① Avg reward+0.42
+Cost today$3.20
+Error rate0.6%
+② Usage over time
+line chart
+Latency (p50 / p95)
+line chart
+③ Alerts
+Ingestion failed: Scan 07
+Spike in thumbs down: Unit 6
+Shortcuts
+Users
+Prompts
+Quality
+Elements & actions
+① Health, cost and quality at a glance.
+② Usage and latency charts.
+③ Alerts link to the page that fixes the
+problem.
+
+
+=== PAGE 26 ===
+26 User management
+/admin/users
+Admin
+https://app.example/admin/users
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+Search name / email…
+Role ▾
+Status ▾
+Invite teacher
+① Pending teacher approvals
+K. Fernando · invite code used
+Approve
+Reject
+② All users
+Name
+Email
+Role
+Status
+Last active
+A. Perera
+a@…
+Student
+Active
+Today
+Edit ▾
+T. Silva
+t@…
+Teacher
+Active
+Yesterday
+Edit ▾
+Elements & actions
+① Teachers need admin approval; the
+first admin is created manually in the
+database.
+② Edit menu: change role, disable
+account, reset access.
+
+
+=== PAGE 27 ===
+27 Curriculum management
+/admin/curriculum
+Admin
+https://app.example/admin/curriculum
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+Units & lessons
+Glossary
+① Unit tree
+▸ Unit 1
+▾ Unit 4
+  4.1 · 4.2 · 4.3
++ Add unit
+② Edit unit
+Name (Sinhala)
+Name (English)
+Order
+Save
+Delete
+Elements & actions
+① Units and lessons feed filters,
+dashboards and chunk tags.
+② Drag to reorder; both language
+names are required.
+
+
+=== PAGE 28 ===
+28 Prompt versions
+/admin/prompts
+Admin
+https://app.example/admin/prompts
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+① Versions
+Name
+Mode
+Uses
+Avg reward
+Active
+ask_v3
+Ask
+4,210
++0.51
+☑
+ask_v2
+Ask
+1,980
++0.38
+☐
+discuss_v2
+Discuss
+860
++0.44
+☑
+② Traffic split
+Auto-shift to best performer
+③ Editor
+Prompt text…
+Save as new version
+Compare
+Roll back
+Elements & actions
+① Every answer stores the prompt
+version used.
+② Traffic split shows how the reward-
+based selector shares requests.
+③ Never edit in place: save a new
+version, compare, roll back if worse.
+
+
+=== PAGE 29 ===
+29 Quality & reward dashboard
+/admin/quality
+Admin
+https://app.example/admin/quality
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+Thumbs up ratio82%
+Hallucination rate3%
+Recall@50.91
+Marking agreement88%
+① Reward trend
+line chart
+② Top thumbs-down reasons
+Wrong answer 38%
+Unclear 27%
+Too long 15%
+③ Worst chunks
+Chunk
+Unit
+Neg. score
+#88
+4
+-12
+Open
+④ Lowest-reward answers
+Q: … (−0.8)
+Send to teacher review
+Elements & actions
+① Tracks whether feedback-driven
+changes really improve quality.
+② Evaluation metrics from the fixed test
+set sit beside live feedback.
+③ Bad chunks are usually bad OCR; fix
+the source and re-embed.
+
+
+=== PAGE 30 ===
+30 System settings
+/admin/settings
+Admin
+https://app.example/admin/settings
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+① Limits
+Questions / user / hour [ 30 ]
+Quiz generations / day [ 10 ]
+Confidence threshold [ 0.45 ]
+② Models
+LLM ▾
+Embedding model ▾
+Reranker ▾
+③ Feature toggles
+☑ Exam mode
+☐ Leaderboard
+☑ Discuss mode
+☐ Code tracer
+④ Maintenance
+☐ Maintenance mode
+Banner message
+Save
+Elements & actions
+① Rate limits control cost.
+② Confidence threshold decides when
+the tutor says "not found".
+③ Feature toggles for gradual rollout.
+
+
+=== PAGE 31 ===
+31 Audit log & data requests
+/admin/audit
+Admin
+https://app.example/admin/audit
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Admin ▾
+Dashboard
+Users
+Curriculum
+Prompts
+Quality &
+Reward
+System
+Settings
+Audit & Data
+Help
+Audit log
+Data requests
+User ▾
+Action ▾
+Date ▾
+Filter
+Time
+User
+Action
+Target
+10:02
+admin1
+Changed role
+T. Silva
+09:40
+teacher2
+Approved question
+Q-132
+① Data requests
+User
+Request
+Status
+A. Perera
+Delete account
+Pending
+Process
+N. Silva
+Export data
+Done
+Elements & actions
+① Record who changed what, especially
+roles, marks and prompts.
+② Handle deletion and export requests
+for student data.
+
+
+=== PAGE 32 ===
+32 Profile & settings (all roles)
+/settings
+All roles
+https://app.example/settings
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+Profile
+Language
+Security
+Notifications
+Privacy & data
+① Profile
+Full name
+Grade
+Save
+② Preferences
+Language: ○ SI ○ EN ○ Mixed
+☐ Low-data mode
+☐ Dark mode
+☐ Show on leaderboard
+③ Privacy & data
+Download my data
+Delete my account
+Consent status
+Elements & actions
+① Same page for every role; teacher
+and admin see extra tabs.
+② Language and low-data mode matter
+for mobile users.
+③ Data export and deletion support
+privacy rules for student data.
+
+
+=== PAGE 33 ===
+33 Help & how-to guide
+/help
+All roles
+https://app.example/help
+LOGO
+Search units, glossary…
+SI | EN
+Alerts
+Student ▾
+Dashboard
+Units
+Ask / Discuss
+Quizzes
+Past Papers
+Progress
+Mistakes
+Flashcards
+Glossary
+Study
+Planner
+Settings
+Help
+① Search help…
+Getting started
+Using Ask & Discuss
+Quizzes & marks
+Account & privacy
+② FAQ
+▸ Why does the tutor say "not found in syllabus"?
+▸ What does the scope toggle do?
+▸ How are my marks calculated?
+③ Contact support
+Send message
+Report a wrong answer
+Report
+Elements & actions
+① Searchable guide and FAQ so new
+users learn the basics.
+② Contact and report links.
+
+
+=== PAGE 34 ===
+34 Privacy, terms & consent
+/privacy
+Public
+https://app.example/privacy
+LOGO
+How it works Features For teachers Help
+Login
+Register
+Privacy policy
+What we collect · How feedback is used · Your rights
+① Terms of use
+② Guardian consent (under 18)
+☐ I am the parent/guardian
+Confirm
+③ Your data
+Download · Delete
+Privacy Terms Contact SI | EN
+Elements & actions
+① Plain language policy; students may
+be minors.
+② Guardian consent option for schools.
+③ Links to data export and deletion.
+
+
+=== PAGE 35 ===
+35 Error, empty & loading states
+(system states)
+All roles
+https://app.example/(system states)
+404 Not found
+illustration
+Go home
+Offline
+no connection
+Retry
+Not in syllabus
+"This is not covered in the syllabus material."
+Search all units
+Empty progress
+no data yet
+Take first quiz
+Loading
+Skeleton placeholders
+Elements & actions
+① Designed states avoid dead ends.
+② "Not in syllabus" is a key trust feature
+of the RAG tutor.
+③ Offline state matters for low-
+connectivity users; cached units and
+glossary still open.
+
+
+=== PAGE 36 ===
+36 Mobile views (PWA)
+Mobile layouts
+Student
+https://app.example/Mobile layouts
+Dashboard
+LOGO
+SI|EN
+Ask anything…
+Ask
+Resume
+Continue
+Today
+Flashcards 12 · Mistakes 5
+Unit 4
+Ask
+Quiz
+Unit 5
+Home Units Ask Quiz Me
+Chat
+Unit ▾
+Ask | Discuss
+You: What is 2NF?
+Tutor
+Unit 4
+Simpler
+Thumbs up
+Source ▾
+Type…
+Send
+Quiz · 4/13
+Timer 42:10
+Flag
+MCQ
+○ A
+○ B
+○ C
+○ D
+○ E
+◀
+● ● ○ ○ ○
+▶
+Submit
+Elements & actions
+① Mobile-first: bottom navigation
+(Home, Units, Ask, Quiz, Me).
+② Chat keeps the scope and mode
+toggles at the top; source panel
+collapses into an expandable row.
+③ Quiz uses one question per screen
+with a large tap area; low-data mode
+reduces images.
+
+
+=== PAGE 37 ===
+37 Site map & user flow
+All roles
+Home
+value + how to use
+→
+Register / Login
+Reset password
+Verify email
+→
+Role redirect
+by account role
+Student
+Student dashboard
+Unit page
+Chat: Ask & Discuss
+Quiz setup
+Quiz runner (MCQ, structured, essay)
+Quiz result
+Past papers
+Progress
+Mistake notebook
+Flashcards
+Glossary
+Study planner
+Teacher
+Teacher dashboard
+Content upload & ingestion
+Review queue (questions & answers)
+Mark override
+Classes & assignments
+Class analytics
+Student report
+Admin
+Admin dashboard
+User management
+Curriculum management
+Prompt versions
+Quality & reward dashboard
+System settings
+Audit log & data requests
+Shared / public
+Profile & settings (all roles)
+Help & how-to guide
+Privacy, terms & consent
+Error, empty & loading states
+Mobile views (PWA)
+Home
+Login
+Register
+Password reset
+Key flows: Student: Dashboard → Unit → Chat → Quiz → Result → Mistakes → Revise · Teacher: Upload → Review queue → Approve → Assign quiz → Analytics · Admin: Quality dashboard → Prompts → Settings · Feedback loop: thumbs up/down → Quality dashboard → Prompt versions.
+
+
