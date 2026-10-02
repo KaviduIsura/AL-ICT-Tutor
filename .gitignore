@@ -130,7 +130,8 @@ ehthumbs_vista.db
 # ------------------------------------------------------------------------------
 uploads/
 backend/uploads/
-data/
+/data/
+!frontend/src/data/
 *.tmp
 *.temp
 temp/
